@@ -20,6 +20,10 @@ DATABASE_URL = os.environ.get("DATABASE_URL")
 def get_db():
     return psycopg2.connect(DATABASE_URL)
 
+@app.on_event("startup")
+async def startup():
+    create_tables()
+
 @app.get("/")
 def root():
     return {"status": "Baita API is running 🏠"}
