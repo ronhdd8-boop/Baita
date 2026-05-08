@@ -80,7 +80,7 @@ footer{border-top:0.5px solid var(--cream3);padding:36px 48px;max-width:1200px;m
     <span class="logo-text">baita</span>
   </div>
   <div class="nav-links"><a>Browse</a><a>Map View</a><a>Saved</a><a>About</a></div>
-  <button class="nav-cta">Sign In</button>
+  <button class="nav-cta" onclick="openPostForm()">+ Post a listing</button>
 </nav>
 <section style="max-width:1200px;margin:0 auto">
 <div class="hero">
@@ -259,6 +259,136 @@ document.querySelectorAll('.filter-tag').forEach(t=>
 
 fetchStats();
 doSearch();
+</script>
+
+<div id="post-overlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(37,37,24,0.7);z-index:1000;overflow-y:auto">
+  <div style="max-width:600px;margin:60px auto;background:var(--cream);padding:48px;position:relative">
+    <button onclick="closePostForm()" style="position:absolute;top:20px;right:24px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--text-muted)">✕</button>
+    <p style="font-size:10px;letter-spacing:0.28em;text-transform:uppercase;color:var(--olive);margin-bottom:12px">Tel Aviv · Long-Term Rentals</p>
+    <h2 style="font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;margin-bottom:32px;color:var(--text)">Post your listing</h2>
+    
+    <div id="post-success" style="display:none;text-align:center;padding:40px 0">
+      <div style="font-size:40px;margin-bottom:16px">🏠</div>
+      <h3 style="font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:300;color:var(--text);margin-bottom:12px">Listing submitted!</h3>
+      <p style="color:var(--text-muted);font-size:13px">Your listing is now live on Baita.</p>
+      <button onclick="closePostForm()" class="nav-cta" style="margin-top:24px">Back to listings</button>
+    </div>
+
+    <div id="post-form-inner">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+        <div>
+          <label style="font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--olive);display:block;margin-bottom:8px">Your name *</label>
+          <input id="f-name" type="text" placeholder="Ron Cohen" style="width:100%;font-family:'Jost',sans-serif;font-size:14px;padding:10px 0;border:none;border-bottom:0.5px solid var(--cream3);background:transparent;outline:none;color:var(--text)">
+        </div>
+        <div>
+          <label style="font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--olive);display:block;margin-bottom:8px">Phone / WhatsApp *</label>
+          <input id="f-phone" type="text" placeholder="+972 50 000 0000" style="width:100%;font-family:'Jost',sans-serif;font-size:14px;padding:10px 0;border:none;border-bottom:0.5px solid var(--cream3);background:transparent;outline:none;color:var(--text)">
+        </div>
+      </div>
+
+      <div style="margin-bottom:20px">
+        <label style="font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--olive);display:block;margin-bottom:8px">Listing title *</label>
+        <input id="f-title" type="text" placeholder="Bright 3-room with terrace, Neve Tzedek" style="width:100%;font-family:'Jost',sans-serif;font-size:14px;padding:10px 0;border:none;border-bottom:0.5px solid var(--cream3);background:transparent;outline:none;color:var(--text)">
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px">
+        <div>
+          <label style="font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--olive);display:block;margin-bottom:8px">Neighborhood *</label>
+          <input id="f-neighborhood" type="text" placeholder="Neve Tzedek" style="width:100%;font-family:'Jost',sans-serif;font-size:14px;padding:10px 0;border:none;border-bottom:0.5px solid var(--cream3);background:transparent;outline:none;color:var(--text)">
+        </div>
+        <div>
+          <label style="font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--olive);display:block;margin-bottom:8px">Price / month (₪) *</label>
+          <input id="f-price" type="number" placeholder="8500" style="width:100%;font-family:'Jost',sans-serif;font-size:14px;padding:10px 0;border:none;border-bottom:0.5px solid var(--cream3);background:transparent;outline:none;color:var(--text)">
+        </div>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-bottom:20px">
+        <div>
+          <label style="font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--olive);display:block;margin-bottom:8px">Rooms</label>
+          <input id="f-rooms" type="number" placeholder="3" step="0.5" style="width:100%;font-family:'Jost',sans-serif;font-size:14px;padding:10px 0;border:none;border-bottom:0.5px solid var(--cream3);background:transparent;outline:none;color:var(--text)">
+        </div>
+        <div>
+          <label style="font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--olive);display:block;margin-bottom:8px">Size (m²)</label>
+          <input id="f-sqm" type="number" placeholder="75" style="width:100%;font-family:'Jost',sans-serif;font-size:14px;padding:10px 0;border:none;border-bottom:0.5px solid var(--cream3);background:transparent;outline:none;color:var(--text)">
+        </div>
+        <div>
+          <label style="font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--olive);display:block;margin-bottom:8px">Floor</label>
+          <input id="f-floor" type="number" placeholder="3" style="width:100%;font-family:'Jost',sans-serif;font-size:14px;padding:10px 0;border:none;border-bottom:0.5px solid var(--cream3);background:transparent;outline:none;color:var(--text)">
+        </div>
+      </div>
+
+      <div style="margin-bottom:32px">
+        <label style="font-size:9px;letter-spacing:0.24em;text-transform:uppercase;color:var(--olive);display:block;margin-bottom:8px">Description</label>
+        <textarea id="f-desc" placeholder="Describe your apartment — natural light, renovated kitchen, parking, pets allowed…" rows="4" style="width:100%;font-family:'Jost',sans-serif;font-size:14px;padding:10px 0;border:none;border-bottom:0.5px solid var(--cream3);background:transparent;outline:none;color:var(--text);resize:none"></textarea>
+      </div>
+
+      <div id="post-error" style="display:none;color:#c0392b;font-size:12px;margin-bottom:16px;letter-spacing:0.04em"></div>
+
+      <button onclick="submitListing()" style="width:100%;background:var(--olive);color:var(--white);font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.22em;text-transform:uppercase;padding:18px;border:none;cursor:pointer;transition:background .2s">Publish my listing</button>
+    </div>
+  </div>
+</div>
+
+<script>
+function openPostForm() {
+  document.getElementById('post-overlay').style.display = 'block';
+  document.body.style.overflow = 'hidden';
+}
+function closePostForm() {
+  document.getElementById('post-overlay').style.display = 'none';
+  document.body.style.overflow = '';
+  document.getElementById('post-success').style.display = 'none';
+  document.getElementById('post-form-inner').style.display = 'block';
+}
+
+async function submitListing() {
+  const name = document.getElementById('f-name').value.trim();
+  const phone = document.getElementById('f-phone').value.trim();
+  const title = document.getElementById('f-title').value.trim();
+  const neighborhood = document.getElementById('f-neighborhood').value.trim();
+  const price = document.getElementById('f-price').value;
+  const rooms = document.getElementById('f-rooms').value;
+  const sqm = document.getElementById('f-sqm').value;
+  const floor = document.getElementById('f-floor').value;
+  const description = document.getElementById('f-desc').value.trim();
+  const errEl = document.getElementById('post-error');
+
+  if (!name || !phone || !title || !neighborhood || !price) {
+    errEl.style.display = 'block';
+    errEl.textContent = 'Please fill in all required fields (*)';
+    return;
+  }
+  errEl.style.display = 'none';
+
+  const listing = {
+    title, neighborhood, price: parseInt(price),
+    rooms: parseFloat(rooms) || 0,
+    sqm: parseInt(sqm) || 0,
+    floor: parseInt(floor) || 0,
+    description: description + (name ? ` | Contact: ${name} ${phone}` : ''),
+    contact_name: name,
+    contact_phone: phone
+  };
+
+  try {
+    const res = await fetch('https://baita.onrender.com/listings/post', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(listing)
+    });
+    if (res.ok) {
+      document.getElementById('post-form-inner').style.display = 'none';
+      document.getElementById('post-success').style.display = 'block';
+      doSearch();
+    } else {
+      errEl.style.display = 'block';
+      errEl.textContent = 'Error submitting. Please try again.';
+    }
+  } catch(e) {
+    errEl.style.display = 'block';
+    errEl.textContent = 'Connection error. Please try again.';
+  }
+}
 </script>
 </body>
 </html>
