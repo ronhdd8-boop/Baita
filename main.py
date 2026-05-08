@@ -130,3 +130,39 @@ def get_stats():
         return {"total_listings": total, "total_sources": sources, "trending": [dict(t) for t in trending]}
     except Exception as e:
         return {"total_listings": 0, "total_sources": 0, "trending": [], "error": str(e)}
+
+from pydantic import BaseModel
+import hashlib
+
+class NewListing(BaseModel):
+    title: str
+    neighborhood: str
+    price: int
+    rooms: float = 0
+    sqm: int = 0
+    floor: int = 0
+    description: str = ""
+    contact_name: str = ""
+    contact_phone: str = ""
+
+@app.post("/listings/post")
+def post_listing(listing: NewListing):
+    try:
+        import hashlib, time
+        listing_id = hashlib.md5(f"baita-{listing.title}-{time.time()}".encode()).hexdigest()
+        conn = get_db()
+        cur = conn.cursor()
+        cur.execute("""
+            INSERT INTO listings (id, title, neighborhood, city, rooms, floor, sqm, price, source, url, description)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)
+        """, (
+            listing_id, listing.title, listing.neighborhood, "Tel Aviv",
+            listing.rooms, listing.floor, listing.sqm, listing.price,
+            "Baita", "#", listing.description
+        ))
+        conn.commit()
+        cur.close()
+        conn.close()
+        return {"success": True, "id": listing_id}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
