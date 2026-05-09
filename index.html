@@ -662,6 +662,57 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
 .search-pill { border-radius: 60px !important; }
 .modal, .gate-box, .post-modal { border-radius: 16px !important; }
 .sp-dropdown, .filters-dd { border-radius: 16px !important; }
+
+/* ── ABOUT SECTION (inline) ── */
+.about-intro{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 40px 80px;text-align:center;background:#0a0a07;position:relative;overflow:hidden}
+.about-intro .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 80%,rgba(107,117,53,0.12) 0%,transparent 60%);pointer-events:none}
+.about-intro .hero-grain{position:absolute;inset:0;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");background-size:200px}
+.about-logo-wrap{position:relative;z-index:1;margin-bottom:48px}
+.about-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,8vw,80px);font-weight:300;line-height:1.05;letter-spacing:-0.02em;color:white;position:relative;z-index:1;margin-bottom:28px}
+.about-tagline em{font-style:italic;color:#a8c060}
+.about-sub{font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,0.4);line-height:1.9;max-width:560px;position:relative;z-index:1;margin:0 auto}
+.manifesto{background:var(--cream);padding:120px 40px;text-align:center}
+.manifesto-inner{max-width:720px;margin:0 auto}
+.section-tag-about{font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:var(--olive);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:12px}
+.section-tag-about::before,.section-tag-about::after{content:'';display:block;width:20px;height:0.5px;background:var(--olive)}
+.manifesto-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,52px);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:40px}
+.manifesto-quote em{font-style:italic;color:var(--olive)}
+.manifesto-body{font-size:15px;color:var(--text-muted);line-height:2;max-width:580px;margin:0 auto}
+.values-section{background:#0e0e0a;padding:100px 40px}
+.values-inner{max-width:1000px;margin:0 auto}
+.values-header{text-align:center;margin-bottom:64px}
+.values-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);font-weight:300;color:white;margin-bottom:12px}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04)}
+.value-card{padding:40px 36px;background:#0e0e0a;transition:background .2s}
+.value-card:hover{background:#111108}
+.value-num{font-family:'Jost',sans-serif;font-size:52px;font-weight:200;color:var(--olive-light);line-height:1;margin-bottom:16px;letter-spacing:-0.02em}
+.value-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:white;margin-bottom:12px}
+.value-desc{font-size:13px;color:rgba(255,255,255,0.3);line-height:1.85}
+.story-section{background:var(--cream);padding:120px 40px}
+.story-inner{max-width:800px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,48px);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:24px}
+.story-body-text{font-size:14px;color:var(--text-muted);line-height:2}
+.story-body-text p{margin-bottom:16px}
+.story-visual{display:flex;flex-direction:column;gap:16px}
+.story-stat{background:white;border:0.5px solid var(--cream3);padding:24px 28px}
+.stat-num-about{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--olive);line-height:1;margin-bottom:6px}
+.stat-lbl-about{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-muted)}
+.cta-about{background:var(--olive);padding:100px 40px;text-align:center}
+.cta-title-about{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;color:white;line-height:1.1;margin-bottom:16px}
+.cta-title-about em{font-style:italic}
+.cta-sub-about{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:40px;line-height:1.8}
+.cta-btns-about{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn-about{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:16px 36px;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block;border-radius:40px;border:none}
+.cta-btn-about.white{background:white;color:var(--olive)}
+.cta-btn-about.white:hover{background:var(--cream);transform:translateY(-2px)}
+.cta-btn-about.outline{background:transparent;border:0.5px solid rgba(255,255,255,0.4);color:white}
+.cta-btn-about.outline:hover{border-color:white;transform:translateY(-2px)}
+@media(max-width:768px){
+  .values-grid{grid-template-columns:1fr}
+  .story-inner{grid-template-columns:1fr;gap:40px}
+  .cta-btns-about{flex-direction:column;align-items:center}
+  .about-intro{padding:80px 24px}
+}
 </style>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
@@ -704,7 +755,58 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
       .piece-left  { fill:#6e703c; animation: left-piece  var(--dur) cubic-bezier(0.12,0.9,0.2,1) 1 forwards; transform-origin: 175px 380px; }
       .piece-right { fill:#6e703c; animation: right-piece var(--dur) cubic-bezier(0.12,0.9,0.2,1) 1 forwards; transform-origin: 400px 360px; }
       .piece-dot   { fill:#6e703c; animation: dot-piece   var(--dur) cubic-bezier(0.22,1,0.36,1) 1 forwards; transform-origin: 271px 330px; }
-      </style>
+      
+/* ── ABOUT SECTION (inline) ── */
+.about-intro{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 40px 80px;text-align:center;background:#0a0a07;position:relative;overflow:hidden}
+.about-intro .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 80%,rgba(107,117,53,0.12) 0%,transparent 60%);pointer-events:none}
+.about-intro .hero-grain{position:absolute;inset:0;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");background-size:200px}
+.about-logo-wrap{position:relative;z-index:1;margin-bottom:48px}
+.about-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,8vw,80px);font-weight:300;line-height:1.05;letter-spacing:-0.02em;color:white;position:relative;z-index:1;margin-bottom:28px}
+.about-tagline em{font-style:italic;color:#a8c060}
+.about-sub{font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,0.4);line-height:1.9;max-width:560px;position:relative;z-index:1;margin:0 auto}
+.manifesto{background:var(--cream);padding:120px 40px;text-align:center}
+.manifesto-inner{max-width:720px;margin:0 auto}
+.section-tag-about{font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:var(--olive);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:12px}
+.section-tag-about::before,.section-tag-about::after{content:'';display:block;width:20px;height:0.5px;background:var(--olive)}
+.manifesto-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,52px);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:40px}
+.manifesto-quote em{font-style:italic;color:var(--olive)}
+.manifesto-body{font-size:15px;color:var(--text-muted);line-height:2;max-width:580px;margin:0 auto}
+.values-section{background:#0e0e0a;padding:100px 40px}
+.values-inner{max-width:1000px;margin:0 auto}
+.values-header{text-align:center;margin-bottom:64px}
+.values-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);font-weight:300;color:white;margin-bottom:12px}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04)}
+.value-card{padding:40px 36px;background:#0e0e0a;transition:background .2s}
+.value-card:hover{background:#111108}
+.value-num{font-family:'Jost',sans-serif;font-size:52px;font-weight:200;color:var(--olive-light);line-height:1;margin-bottom:16px;letter-spacing:-0.02em}
+.value-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:white;margin-bottom:12px}
+.value-desc{font-size:13px;color:rgba(255,255,255,0.3);line-height:1.85}
+.story-section{background:var(--cream);padding:120px 40px}
+.story-inner{max-width:800px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,48px);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:24px}
+.story-body-text{font-size:14px;color:var(--text-muted);line-height:2}
+.story-body-text p{margin-bottom:16px}
+.story-visual{display:flex;flex-direction:column;gap:16px}
+.story-stat{background:white;border:0.5px solid var(--cream3);padding:24px 28px}
+.stat-num-about{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--olive);line-height:1;margin-bottom:6px}
+.stat-lbl-about{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-muted)}
+.cta-about{background:var(--olive);padding:100px 40px;text-align:center}
+.cta-title-about{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;color:white;line-height:1.1;margin-bottom:16px}
+.cta-title-about em{font-style:italic}
+.cta-sub-about{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:40px;line-height:1.8}
+.cta-btns-about{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn-about{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:16px 36px;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block;border-radius:40px;border:none}
+.cta-btn-about.white{background:white;color:var(--olive)}
+.cta-btn-about.white:hover{background:var(--cream);transform:translateY(-2px)}
+.cta-btn-about.outline{background:transparent;border:0.5px solid rgba(255,255,255,0.4);color:white}
+.cta-btn-about.outline:hover{border-color:white;transform:translateY(-2px)}
+@media(max-width:768px){
+  .values-grid{grid-template-columns:1fr}
+  .story-inner{grid-template-columns:1fr;gap:40px}
+  .cta-btns-about{flex-direction:column;align-items:center}
+  .about-intro{padding:80px 24px}
+}
+</style>
   </defs>
 
   <path class="piece-left" d="M116.50 481.50 c-16.70 -1.95 -30.80 -7.05 -41.35 -14.95 -5.85 -4.40 -5.85 -4.80 -0.40 -5.20 6.05 -0.45 10.40 -2.55 14.85 -7.25 3.70 -3.95 5.75 -7.30 7.60 -12.50 1.20 -3.40 2.80 -10.70 3.60 -16.35 0.20 -1.35 0.50 -46.80 0.70 -101 0.30 -86.65 0.40 -99.35 1.15 -105.50 1.90 -16.20 4.50 -25.85 9.90 -36.25 8.45 -16.55 20.05 -28 36.85 -36.40 12.40 -6.20 20.10 -8.45 38.10 -11.05 10.85 -1.55 20.55 -2.05 40.50 -2.05 19.65 0 28.40 0.55 41.25 2.45 9.30 1.40 10.95 1.80 17.95 4.10 23.20 7.70 36.55 20.85 42.05 41.55 1.50 5.70 2.70 16 2.55 22.55 -0.10 5.90 -0.50 6.45 -3.50 4.40 -5.80 -4 -14.75 -7.55 -23.30 -9.30 -13.70 -2.80 -16.25 -3 -39 -2.95 -19.70 0 -21.70 0.10 -27.55 1.10 -9.70 1.75 -15.20 3.40 -21.20 6.35 -10.50 5.20 -15.90 11.30 -19.60 22 -3.05 8.85 -2.80 1.55 -3.15 101.75 -0.35 97.95 -0.30 95.55 -2.80 108.25 -1.55 8 -5.25 17.15 -9.65 23.75 -5.60 8.50 -15.35 15.65 -26.50 19.45 -7.10 2.45 -12.15 3.15 -24.05 3.30 -6.20 0.10 -12.95 0 -15 -0.25z"/>
@@ -723,6 +825,7 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
       <button class="lang-btn on" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('he')">&#x05E2;&#x05D1;</button>
     </div>
+    <button class="nav-btn ghost" onclick="navigate('dashboard.html')" id="nav-getstarted-btn">Get started</button>
     <button class="nav-btn ghost" onclick="openModal()" id="nav-signin-btn">Sign in</button>
     <button class="nav-btn solid" id="nav-join-btn" onclick="navigate('join.html')">Join Baita</button>
   </div>
@@ -746,23 +849,111 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
   <div class="hero-grain"></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    
     <h1 class="hero-title">Your next<br>home, <em>faster.</em></h1>
     <div class="hero-actions">
-      <button class="btn-hero primary" onclick="smoothGo('#search-section')">Find my apartment</button>
-      <button class="btn-hero outline" onclick="navigate('join.html')">List my apartment</button>
+      <button class="btn-hero primary" onclick="smoothGo('#about-section')">Discover Baita</button>
+      <button class="btn-hero outline" onclick="navigate('join.html')">Post an apartment</button>
     </div>
   </div>
-  <div class="slide-indicators" id="slide-dots">
-    <div class="slide-dot on" onclick="goSlide(0)"></div>
-    <div class="slide-dot" onclick="goSlide(1)"></div>
-    <div class="slide-dot" onclick="goSlide(2)"></div>
-    <div class="slide-dot" onclick="goSlide(3)"></div>
-  </div>
-  <div class="slide-location" id="slide-loc">Gordon Beach &middot; Tel Aviv</div>
-  <div class="hero-scroll" onclick="smoothGo('#search-section')">
+  <div class="hero-scroll" onclick="smoothGo('#about-section')">
     <div class="scroll-track"></div>
     <span class="scroll-lbl">Scroll</span>
+  </div>
+</section>
+
+
+<!-- ABOUT INTRO -->
+<section class="about-intro" id="about-section">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="about-logo-wrap">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 542 568" style="width:240px;height:240px">
+      <defs><style>
+        @keyframes lp2{0%{transform:translate(-420px,180px) rotate(-55deg) scale(0.4);opacity:0}3%{opacity:1}24%{transform:translate(16px,-6px) rotate(3deg) scale(1.04);opacity:1}29%{transform:translate(-4px,3px) rotate(-1deg) scale(0.98)}33%,100%{transform:translate(0,0) rotate(0deg) scale(1);opacity:1}}
+        @keyframes rp2{0%,10%{transform:translate(400px,-200px) rotate(50deg) scale(0.4);opacity:0}13%{opacity:1}34%{transform:translate(-12px,7px) rotate(-3deg) scale(1.04);opacity:1}39%{transform:translate(3px,-2px) rotate(1deg) scale(0.98)}43%,100%{transform:translate(0,0) rotate(0deg) scale(1);opacity:1}}
+        @keyframes dp2{0%,20%{transform:translate(0,-360px) scale(0.15);opacity:0}23%{opacity:1}46%{transform:translate(0,22px) scale(1.4);opacity:1}51%{transform:translate(0,-8px) scale(0.82)}55%{transform:translate(0,5px) scale(1.1)}58%{transform:translate(0,-2px) scale(0.97)}61%,100%{transform:translate(0,0) scale(1);opacity:1}}
+        .al{fill:#6e703c;animation:lp2 3.5s cubic-bezier(0.12,0.9,0.2,1) both;animation-play-state:paused;transform-origin:175px 380px}
+        .ar{fill:#6e703c;animation:rp2 3.5s cubic-bezier(0.12,0.9,0.2,1) both;animation-play-state:paused;transform-origin:400px 360px}
+        .ad{fill:#6e703c;animation:dp2 3.5s cubic-bezier(0.22,1,0.36,1) both;animation-play-state:paused;transform-origin:271px 330px}
+        .al.run,.ar.run,.ad.run{animation-play-state:running}
+      </style></defs>
+      <path class="al" d="M116.50 481.50 c-16.70 -1.95 -30.80 -7.05 -41.35 -14.95 -5.85 -4.40 -5.85 -4.80 -0.40 -5.20 6.05 -0.45 10.40 -2.55 14.85 -7.25 3.70 -3.95 5.75 -7.30 7.60 -12.50 1.20 -3.40 2.80 -10.70 3.60 -16.35 0.20 -1.35 0.50 -46.80 0.70 -101 0.30 -86.65 0.40 -99.35 1.15 -105.50 1.90 -16.20 4.50 -25.85 9.90 -36.25 8.45 -16.55 20.05 -28 36.85 -36.40 12.40 -6.20 20.10 -8.45 38.10 -11.05 10.85 -1.55 20.55 -2.05 40.50 -2.05 19.65 0 28.40 0.55 41.25 2.45 9.30 1.40 10.95 1.80 17.95 4.10 23.20 7.70 36.55 20.85 42.05 41.55 1.50 5.70 2.70 16 2.55 22.55 -0.10 5.90 -0.50 6.45 -3.50 4.40 -5.80 -4 -14.75 -7.55 -23.30 -9.30 -13.70 -2.80 -16.25 -3 -39 -2.95 -19.70 0 -21.70 0.10 -27.55 1.10 -9.70 1.75 -15.20 3.40 -21.20 6.35 -10.50 5.20 -15.90 11.30 -19.60 22 -3.05 8.85 -2.80 1.55 -3.15 101.75 -0.35 97.95 -0.30 95.55 -2.80 108.25 -1.55 8 -5.25 17.15 -9.65 23.75 -5.60 8.50 -15.35 15.65 -26.50 19.45 -7.10 2.45 -12.15 3.15 -24.05 3.30 -6.20 0.10 -12.95 0 -15 -0.25z"/>
+      <path class="ar" d="M436.80 481.45 c-6.90 -0.75 -18.90 -2.90 -23.55 -4.25 -19.40 -5.60 -30.75 -12 -42.30 -23.75 -13.75 -14.05 -21.95 -30.65 -26.45 -53.35 -2.85 -14.50 -2.90 -16.60 -2.95 -115.75 -0.05 -62.05 -0.20 -90.20 -0.55 -90.90 -0.30 -0.55 -0.40 -1.20 -0.25 -1.45 0.40 -0.60 -0.55 -6.70 -2.10 -13.45 -1.85 -8.40 -5.15 -15.55 -9.80 -21.45 l-2.50 -3.20 1.05 -3.05 c3.35 -9.95 4.50 -24.30 2.80 -34.95 -0.40 -2.75 -0.65 -5.25 -0.55 -5.65 0.30 -0.70 1.30 -0.65 11.10 0.55 20.15 2.45 38.80 7.65 52.25 14.60 8.75 4.55 10.65 5.70 16.80 10.50 15.65 12.10 24.05 30.25 25.65 55.35 0.25 3.60 0.45 45.65 0.50 93.50 0.05 47.85 0.20 91.05 0.35 96 0.45 17.05 2.25 34.70 4.90 49.10 3.15 17.05 10.65 38.15 17.10 48.25 1.15 1.80 2 3.45 1.85 3.60 -0.45 0.45 -18.75 0.25 -23.35 -0.25z"/>
+      <path class="ad" d="M265.75 343.35 c-5.85 -1.95 -9.90 -6.05 -12.30 -12.55 -2.05 -5.65 -0.65 -13 3.60 -18.35 1.65 -2.10 6.25 -5.05 9.30 -5.95 4.25 -1.30 7.25 -1.15 11.60 0.50 5 1.95 8.80 5.20 10.85 9.35 1.35 2.70 1.45 3.30 1.45 8.65 0 5.50 -0.05 5.90 -1.60 8.80 -1.80 3.45 -5.30 6.85 -8.95 8.70 -2 1 -3.35 1.25 -7.20 1.35 -2.95 0.10 -5.50 -0.10 -6.75 -0.50z"/>
+    </svg>
+  </div>
+  <h2 class="about-tagline">Finding a home<br>should feel <em>human.</em></h2>
+  <p class="about-sub">Baita was born from a simple frustration — too many middlemen, too little trust. We built a place where landlords and seekers connect directly.</p>
+  <div style="position:absolute;bottom:40px;left:0;right:0;display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1;cursor:pointer" onclick="document.getElementById('manifesto-section').scrollIntoView({behavior:'smooth'})">
+    <div style="width:0.5px;height:44px;background:rgba(255,255,255,0.15);position:relative;overflow:hidden">
+      <span style="position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--olive-light);animation:scrollPulse 2s 1s infinite"></span>
+    </div>
+    <span style="font-size:8px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.25)">Scroll</span>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto-section">
+  <div class="manifesto-inner">
+    <p class="section-tag-about">Our philosophy</p>
+    <h2 class="manifesto-quote">"Tel Aviv deserves a rental market<br>built on <em>transparency</em> and <em>trust</em>."</h2>
+    <p class="manifesto-body">Baita is a direct platform where landlords post their apartments and seekers find their next home — with no agents, no commissions and no hidden fees. Just people, talking to people.</p>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values-section">
+  <div class="values-inner">
+    <div class="values-header">
+      <p class="section-tag-about" style="color:var(--olive-light)">What we stand for</p>
+      <h2 class="values-title">Built on three principles</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <h3 class="value-name">Post directly</h3>
+        <p class="value-desc">Landlords publish their listings on Baita in minutes. No intermediary, no commission — your apartment, your terms, your price.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <h3 class="value-name">Connect directly</h3>
+        <p class="value-desc">Seekers message hosts directly through Baita. No agent taking a month's rent for forwarding an email. Real conversations, real decisions.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <h3 class="value-name">Live beautifully</h3>
+        <p class="value-desc">Finding a home is stressful enough. Baita strips away the complexity and gives you a calm, refined experience you actually enjoy using.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story-section">
+  <div class="story-inner">
+    <div>
+      <p class="section-tag-about" style="justify-content:flex-start">Our story</p>
+      <h2 class="story-heading">Born in Tel Aviv,<br>built for Tel Aviv.</h2>
+      <div class="story-body-text">
+        <p>We spent months navigating the Tel Aviv rental market ourselves — calling agents, losing apartments to faster movers, paying fees for nothing. It was exhausting.</p>
+        <p>So we built the tool we wished existed. Baita is a direct marketplace where landlords post their apartments and seekers find their home — with messaging built in, verified profiles, and a beautiful experience on both sides.</p>
+      </div>
+    </div>
+    <div class="story-visual">
+      <div class="story-stat"><div class="stat-num-about">0</div><div class="stat-lbl-about">Agent commissions charged</div></div>
+      <div class="story-stat"><div class="stat-num-about">100%</div><div class="stat-lbl-about">Direct landlord listings</div></div>
+      <div class="story-stat"><div class="stat-num-about">2 min</div><div class="stat-lbl-about">Average time to post a listing</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-about">
+  <h2 class="cta-title-about">Ready to find<br>your <em>home</em>?</h2>
+  <p class="cta-sub-about">Join seekers and landlords already using Baita — directly.</p>
+  <div class="cta-btns-about">
+    <button class="cta-btn-about white" onclick="navigate('dashboard.html')">Start searching</button>
+    <button class="cta-btn-about outline" onclick="navigate('join.html')">Create free account</button>
   </div>
 </section>
 
@@ -1014,7 +1205,58 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
       .piece-left  { fill:#6e703c; animation: left-piece  var(--dur) cubic-bezier(0.12,0.9,0.2,1) 1 forwards; transform-origin: 175px 380px; }
       .piece-right { fill:#6e703c; animation: right-piece var(--dur) cubic-bezier(0.12,0.9,0.2,1) 1 forwards; transform-origin: 400px 360px; }
       .piece-dot   { fill:#6e703c; animation: dot-piece   var(--dur) cubic-bezier(0.22,1,0.36,1) 1 forwards; transform-origin: 271px 330px; }
-      </style>
+      
+/* ── ABOUT SECTION (inline) ── */
+.about-intro{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 40px 80px;text-align:center;background:#0a0a07;position:relative;overflow:hidden}
+.about-intro .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 80%,rgba(107,117,53,0.12) 0%,transparent 60%);pointer-events:none}
+.about-intro .hero-grain{position:absolute;inset:0;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n2'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n2)'/%3E%3C/svg%3E");background-size:200px}
+.about-logo-wrap{position:relative;z-index:1;margin-bottom:48px}
+.about-tagline{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,8vw,80px);font-weight:300;line-height:1.05;letter-spacing:-0.02em;color:white;position:relative;z-index:1;margin-bottom:28px}
+.about-tagline em{font-style:italic;color:#a8c060}
+.about-sub{font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,0.4);line-height:1.9;max-width:560px;position:relative;z-index:1;margin:0 auto}
+.manifesto{background:var(--cream);padding:120px 40px;text-align:center}
+.manifesto-inner{max-width:720px;margin:0 auto}
+.section-tag-about{font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:var(--olive);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:12px}
+.section-tag-about::before,.section-tag-about::after{content:'';display:block;width:20px;height:0.5px;background:var(--olive)}
+.manifesto-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,52px);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:40px}
+.manifesto-quote em{font-style:italic;color:var(--olive)}
+.manifesto-body{font-size:15px;color:var(--text-muted);line-height:2;max-width:580px;margin:0 auto}
+.values-section{background:#0e0e0a;padding:100px 40px}
+.values-inner{max-width:1000px;margin:0 auto}
+.values-header{text-align:center;margin-bottom:64px}
+.values-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);font-weight:300;color:white;margin-bottom:12px}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04)}
+.value-card{padding:40px 36px;background:#0e0e0a;transition:background .2s}
+.value-card:hover{background:#111108}
+.value-num{font-family:'Jost',sans-serif;font-size:52px;font-weight:200;color:var(--olive-light);line-height:1;margin-bottom:16px;letter-spacing:-0.02em}
+.value-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:white;margin-bottom:12px}
+.value-desc{font-size:13px;color:rgba(255,255,255,0.3);line-height:1.85}
+.story-section{background:var(--cream);padding:120px 40px}
+.story-inner{max-width:800px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,48px);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:24px}
+.story-body-text{font-size:14px;color:var(--text-muted);line-height:2}
+.story-body-text p{margin-bottom:16px}
+.story-visual{display:flex;flex-direction:column;gap:16px}
+.story-stat{background:white;border:0.5px solid var(--cream3);padding:24px 28px}
+.stat-num-about{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--olive);line-height:1;margin-bottom:6px}
+.stat-lbl-about{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-muted)}
+.cta-about{background:var(--olive);padding:100px 40px;text-align:center}
+.cta-title-about{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;color:white;line-height:1.1;margin-bottom:16px}
+.cta-title-about em{font-style:italic}
+.cta-sub-about{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:40px;line-height:1.8}
+.cta-btns-about{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn-about{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:16px 36px;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block;border-radius:40px;border:none}
+.cta-btn-about.white{background:white;color:var(--olive)}
+.cta-btn-about.white:hover{background:var(--cream);transform:translateY(-2px)}
+.cta-btn-about.outline{background:transparent;border:0.5px solid rgba(255,255,255,0.4);color:white}
+.cta-btn-about.outline:hover{border-color:white;transform:translateY(-2px)}
+@media(max-width:768px){
+  .values-grid{grid-template-columns:1fr}
+  .story-inner{grid-template-columns:1fr;gap:40px}
+  .cta-btns-about{flex-direction:column;align-items:center}
+  .about-intro{padding:80px 24px}
+}
+</style>
   </defs>
 
   <path class="piece-left" d="M116.50 481.50 c-16.70 -1.95 -30.80 -7.05 -41.35 -14.95 -5.85 -4.40 -5.85 -4.80 -0.40 -5.20 6.05 -0.45 10.40 -2.55 14.85 -7.25 3.70 -3.95 5.75 -7.30 7.60 -12.50 1.20 -3.40 2.80 -10.70 3.60 -16.35 0.20 -1.35 0.50 -46.80 0.70 -101 0.30 -86.65 0.40 -99.35 1.15 -105.50 1.90 -16.20 4.50 -25.85 9.90 -36.25 8.45 -16.55 20.05 -28 36.85 -36.40 12.40 -6.20 20.10 -8.45 38.10 -11.05 10.85 -1.55 20.55 -2.05 40.50 -2.05 19.65 0 28.40 0.55 41.25 2.45 9.30 1.40 10.95 1.80 17.95 4.10 23.20 7.70 36.55 20.85 42.05 41.55 1.50 5.70 2.70 16 2.55 22.55 -0.10 5.90 -0.50 6.45 -3.50 4.40 -5.80 -4 -14.75 -7.55 -23.30 -9.30 -13.70 -2.80 -16.25 -3 -39 -2.95 -19.70 0 -21.70 0.10 -27.55 1.10 -9.70 1.75 -15.20 3.40 -21.20 6.35 -10.50 5.20 -15.90 11.30 -19.60 22 -3.05 8.85 -2.80 1.55 -3.15 101.75 -0.35 97.95 -0.30 95.55 -2.80 108.25 -1.55 8 -5.25 17.15 -9.65 23.75 -5.60 8.50 -15.35 15.65 -26.50 19.45 -7.10 2.45 -12.15 3.15 -24.05 3.30 -6.20 0.10 -12.95 0 -15 -0.25z"/>
@@ -1122,10 +1364,10 @@ function goSlide(n) {
   var dots = document.querySelectorAll('.slide-dot');
   if (!slides.length) return;
   slides[slideIdx].classList.remove('on');
-  dots[slideIdx].classList.remove('on');
+  if (dots[slideIdx]) dots[slideIdx].classList.remove('on');
   slideIdx = (n + slides.length) % slides.length;
   slides[slideIdx].classList.add('on');
-  dots[slideIdx].classList.add('on');
+  if (dots[slideIdx]) dots[slideIdx].classList.add('on');
   var loc = document.getElementById('slide-loc');
   if (loc) loc.textContent = slideLocations[slideIdx];
   clearInterval(carouselTimer);
@@ -1453,6 +1695,20 @@ function setRooms(btn, rooms) {
   curRooms = rooms;
   newOnly = rooms === 'new';
   doSearch(true);
+
+// Trigger about logo animation when scrolled into view
+var aboutLogoObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.al,.ar,.ad').forEach(function(el) {
+        el.classList.add('run');
+      });
+      aboutLogoObserver.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.3});
+var aboutSection = document.getElementById('about-section');
+if (aboutSection) aboutLogoObserver.observe(aboutSection);
 }
 function loadMore() { offset += 6; doSearch(false); }
 
@@ -1508,6 +1764,20 @@ if (token) {
 }
 
 doSearch(true);
+
+// Trigger about logo animation when scrolled into view
+var aboutLogoObserver = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.querySelectorAll('.al,.ar,.ad').forEach(function(el) {
+        el.classList.add('run');
+      });
+      aboutLogoObserver.unobserve(e.target);
+    }
+  });
+}, {threshold: 0.3});
+var aboutSection = document.getElementById('about-section');
+if (aboutSection) aboutLogoObserver.observe(aboutSection);
 </script>
 </body>
 </html>
