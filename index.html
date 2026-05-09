@@ -716,8 +716,6 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
     <span class="logo-text">baita</span>
   </a>
   <div class="nav-center">
-    <button class="nav-link" onclick="smoothGo('#listings-wrap')">Map</button>
-    <button class="nav-link" onclick="navigate('dashboard.html')">My profile</button>
     <button class="nav-link" onclick="navigate('about.html')">About</button>
   </div>
   <div class="nav-right">
@@ -725,9 +723,8 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
       <button class="lang-btn on" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('he')">&#x05E2;&#x05D1;</button>
     </div>
-    <button class="nav-btn ghost" id="nav-profile-btn" onclick="navigate('dashboard.html')">My profile</button>
     <button class="nav-btn ghost" onclick="openModal()" id="nav-signin-btn">Sign in</button>
-    <button class="nav-btn solid" onclick="navigate('join.html')">Join Baita</button>
+    <button class="nav-btn solid" id="nav-join-btn" onclick="navigate('join.html')">Join Baita</button>
   </div>
 </nav>
 
