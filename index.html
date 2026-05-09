@@ -725,7 +725,8 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
       <button class="lang-btn on" onclick="setLang('en')">EN</button>
       <button class="lang-btn" onclick="setLang('he')">&#x05E2;&#x05D1;</button>
     </div>
-    <button class="nav-btn ghost" onclick="openModal()">Sign in</button>
+    <button class="nav-btn ghost" id="nav-profile-btn" onclick="navigate('dashboard.html')">My profile</button>
+    <button class="nav-btn ghost" onclick="openModal()" id="nav-signin-btn">Sign in</button>
     <button class="nav-btn solid" onclick="navigate('join.html')">Join Baita</button>
   </div>
 </nav>
@@ -930,7 +931,7 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
   <div class="split-left" id="split-left">
     <div class="split-header">
       <div>
-        <h2 class="ls-title">Listings in Tel Aviv</h2>
+        <h2 class="ls-title">Latest Listings</h2>
         <p class="ls-count" id="ls-count"></p>
       </div>
       <div class="filter-row">
@@ -1028,7 +1029,7 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
           <span>baita</span>
         </div>
         <p class="footer-tagline">Your next home, faster.</p>
-        <p class="footer-sub">Tel Aviv long-term rentals.<br>Direct. Simple. Beautiful.</p>
+        <p class="footer-sub"></p>
       </div>
       <div class="footer-links">
         <div class="footer-col">
