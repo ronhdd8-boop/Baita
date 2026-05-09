@@ -501,3 +501,23 @@ def get_unread_count(authorization: Optional[str] = Header(None)):
         return {"count": count}
     except:
         return {"count": 0}
+
+# ── MIGRATION ─────────────────────────────────────────────
+@app.get("/admin/migrate")
+def migrate(secret: str = Query(...)):
+    if secret != ADMIN_SECRET:
+        raise HTTPException(status_code=403, detail="Forbidden")
+    try:
+        conn = get_db()
+        cur = conn.cursor()
+        cur.execute("""
+            ALTER TABLE users ADD COLUMN IF NOT EXISTS avatar_url TEXT;
+            ALTER TABLE users ADD COLUMN IF NOT EXISTS session_token TEXT;
+            ALTER TABLE users ADD COLUMN IF NOT EXISTS updated_at TIMESTAMP DEFAULT NOW();
+        """)
+        conn.commit()
+        cur.close()
+        conn.close()
+        return {"success": True, "message": "Migration done"}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
