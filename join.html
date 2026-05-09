@@ -665,8 +665,14 @@ function submit() {
     headers: {'Content-Type': 'application/json'},
     body: JSON.stringify({full_name:name, email:email, whatsapp:wa, age:parseInt(age)||0,
       role:role, neighborhoods:chips, password:pwd})
+  }).then(function(r) { return r.json(); })
+  .then(function(d) {
+    if (d.success && d.token) {
+      localStorage.setItem('baita_token', d.token);
+      setTimeout(function() { window.location.href = 'dashboard.html'; }, 1200);
+    }
   }).catch(function(){});
-  // Show success
+  // Show success briefly then redirect
   document.getElementById('form-wrap').style.display = 'none';
   var suc = document.getElementById('success');
   suc.style.display = 'block';
