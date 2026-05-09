@@ -359,3 +359,145 @@ def admin_listings(secret: str = Query(...), limit: int = 100, offset: int = 0):
         return {"listings": [dict(l) for l in listings]}
     except Exception as e:
         return {"listings": [], "error": str(e)}
+
+# ── MESSAGES ──────────────────────────────────────────────
+
+class NewMessage(BaseModel):
+    to_user_id: str
+    listing_id: Optional[str] = None
+    content: str
+
+@app.on_event("startup")
+async def create_messages_table():
+    try:
+        conn = get_db()
+        cur = conn.cursor()
+        cur.execute("""
+            CREATE TABLE IF NOT EXISTS messages (
+                id TEXT PRIMARY KEY,
+                from_user_id TEXT,
+                to_user_id TEXT,
+                listing_id TEXT,
+                content TEXT,
+                is_read BOOLEAN DEFAULT FALSE,
+                created_at TIMESTAMP DEFAULT NOW()
+            );
+            CREATE TABLE IF NOT EXISTS conversations (
+                id TEXT PRIMARY KEY,
+                user1_id TEXT,
+                user2_id TEXT,
+                listing_id TEXT,
+                last_message TEXT,
+                last_at TIMESTAMP DEFAULT NOW(),
+                UNIQUE(user1_id, user2_id, listing_id)
+            );
+        """)
+        conn.commit()
+        cur.close()
+        conn.close()
+    except Exception as e:
+        print(f"Messages table: {e}")
+
+@app.post("/messages/send")
+def send_message(msg: NewMessage, authorization: Optional[str] = Header(None)):
+    token = authorization.replace("Bearer ", "") if authorization else None
+    user = get_user_by_token(token)
+    if not user:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    try:
+        msg_id = hashlib.md5(f"{user['id']}-{msg.to_user_id}-{time.time()}".encode()).hexdigest()
+        conn = get_db()
+        cur = conn.cursor()
+        cur.execute("""
+            INSERT INTO messages (id, from_user_id, to_user_id, listing_id, content)
+            VALUES (%s, %s, %s, %s, %s)
+        """, (msg_id, user['id'], msg.to_user_id, msg.listing_id, msg.content))
+        # Upsert conversation
+        conv_id = hashlib.md5(f"{min(user['id'],msg.to_user_id)}-{max(user['id'],msg.to_user_id)}-{msg.listing_id or ''}".encode()).hexdigest()
+        cur.execute("""
+            INSERT INTO conversations (id, user1_id, user2_id, listing_id, last_message, last_at)
+            VALUES (%s, %s, %s, %s, %s, NOW())
+            ON CONFLICT (user1_id, user2_id, listing_id) DO UPDATE SET
+                last_message = EXCLUDED.last_message, last_at = NOW()
+        """, (conv_id, min(user['id'],msg.to_user_id), max(user['id'],msg.to_user_id), msg.listing_id or '', msg.content))
+        conn.commit()
+        cur.close()
+        conn.close()
+        return {"success": True, "id": msg_id}
+    except Exception as e:
+        return {"success": False, "error": str(e)}
+
+@app.get("/messages/conversations")
+def get_conversations(authorization: Optional[str] = Header(None)):
+    token = authorization.replace("Bearer ", "") if authorization else None
+    user = get_user_by_token(token)
+    if not user:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    try:
+        conn = get_db()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute("""
+            SELECT c.*, 
+                u1.full_name as user1_name, u1.avatar_url as user1_avatar, u1.role as user1_role,
+                u2.full_name as user2_name, u2.avatar_url as user2_avatar, u2.role as user2_role,
+                (SELECT COUNT(*) FROM messages m WHERE m.to_user_id = %s AND m.from_user_id = 
+                    CASE WHEN c.user1_id = %s THEN c.user2_id ELSE c.user1_id END AND m.is_read = FALSE) as unread
+            FROM conversations c
+            JOIN users u1 ON u1.id = c.user1_id
+            JOIN users u2 ON u2.id = c.user2_id
+            WHERE c.user1_id = %s OR c.user2_id = %s
+            ORDER BY c.last_at DESC
+        """, (user['id'], user['id'], user['id'], user['id']))
+        convs = cur.fetchall()
+        cur.close()
+        conn.close()
+        return {"conversations": [dict(c) for c in convs]}
+    except Exception as e:
+        return {"conversations": [], "error": str(e)}
+
+@app.get("/messages/thread/{other_user_id}")
+def get_thread(other_user_id: str, authorization: Optional[str] = Header(None)):
+    token = authorization.replace("Bearer ", "") if authorization else None
+    user = get_user_by_token(token)
+    if not user:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+    try:
+        conn = get_db()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute("""
+            SELECT m.*, u.full_name as sender_name, u.avatar_url as sender_avatar
+            FROM messages m
+            JOIN users u ON u.id = m.from_user_id
+            WHERE (m.from_user_id = %s AND m.to_user_id = %s)
+               OR (m.from_user_id = %s AND m.to_user_id = %s)
+            ORDER BY m.created_at ASC
+        """, (user['id'], other_user_id, other_user_id, user['id']))
+        msgs = cur.fetchall()
+        # Mark as read
+        cur2 = conn.cursor()
+        cur2.execute("UPDATE messages SET is_read = TRUE WHERE to_user_id = %s AND from_user_id = %s",
+                     (user['id'], other_user_id))
+        conn.commit()
+        cur.close()
+        cur2.close()
+        conn.close()
+        return {"messages": [dict(m) for m in msgs]}
+    except Exception as e:
+        return {"messages": [], "error": str(e)}
+
+@app.get("/messages/unread")
+def get_unread_count(authorization: Optional[str] = Header(None)):
+    token = authorization.replace("Bearer ", "") if authorization else None
+    user = get_user_by_token(token)
+    if not user:
+        return {"count": 0}
+    try:
+        conn = get_db()
+        cur = conn.cursor(cursor_factory=psycopg2.extras.RealDictCursor)
+        cur.execute("SELECT COUNT(*) as c FROM messages WHERE to_user_id = %s AND is_read = FALSE", (user['id'],))
+        count = cur.fetchone()["c"]
+        cur.close()
+        conn.close()
+        return {"count": count}
+    except:
+        return {"count": 0}
