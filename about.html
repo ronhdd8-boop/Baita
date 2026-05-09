@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Baita — About us</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@200;300;400&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+:root{--olive:#6B7535;--olive-light:#8FA048;--cream:#F5F0E8;--cream3:#D8D2C4;--white:#FDFAF5;--text:#1A1A10;--text-muted:#8A8A72;--dark:#0a0a07;--nav-h:64px}
+html,body{height:100%;-webkit-font-smoothing:antialiased}
+body{font-family:'Jost',sans-serif;font-weight:300;background:var(--dark);color:white;opacity:1;transition:opacity .3s}
+body.out{opacity:0}
+nav{position:fixed;top:0;left:0;right:0;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding:0 40px;z-index:100;transition:all .4s;border-bottom:0.5px solid transparent}
+nav.scrolled{background:rgba(10,10,7,0.88);backdrop-filter:blur(20px);border-bottom-color:rgba(255,255,255,0.05)}
+.logo-wrap{display:flex;align-items:center;gap:10px;text-decoration:none;cursor:pointer}
+.logo-text{font-family:'Cormorant Garamond',serif;font-size:22px;letter-spacing:0.14em;color:white}
+.nav-r{display:flex;align-items:center;gap:16px}
+.nav-link{font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.4);cursor:pointer;background:none;border:none;font-family:'Jost',sans-serif;transition:color .2s;border-radius:40px}
+.nav-link:hover{color:white}
+.nav-cta{font-family:'Jost',sans-serif;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;padding:9px 20px;cursor:pointer;transition:all .2s;background:var(--olive);color:white;border:none;border-radius:40px}
+.nav-cta:hover{background:var(--olive-light)}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:120px 40px 80px;position:relative;overflow:hidden;text-align:center}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 80%,rgba(107,117,53,0.12) 0%,transparent 60%);pointer-events:none}
+.hero-grain{position:absolute;inset:0;opacity:0.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
+.hero-logo{position:relative;z-index:1;margin-bottom:48px;animation:fadeUp .8s .2s both}
+.hero-eyebrow{font-size:9px;letter-spacing:0.36em;text-transform:uppercase;color:var(--olive-light);margin-bottom:20px;position:relative;z-index:1;animation:fadeUp .8s .5s both;display:flex;align-items:center;gap:12px}
+.hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:20px;height:0.5px;background:var(--olive-light)}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,8vw,80px);font-weight:300;line-height:1.05;letter-spacing:-0.02em;color:white;margin-bottom:28px;position:relative;z-index:1;animation:fadeUp .9s .65s both}
+.hero-title em{font-style:italic;color:var(--olive-light)}
+.hero-sub{font-size:clamp(14px,2vw,17px);color:rgba(255,255,255,0.4);line-height:1.9;max-width:560px;margin:0 auto;position:relative;z-index:1;animation:fadeUp .8s .8s both}
+.scroll-hint{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;z-index:1;animation:fadeUp .8s 1.2s both;cursor:pointer}
+.scroll-track{width:0.5px;height:44px;background:rgba(255,255,255,0.15);position:relative;overflow:hidden}
+.scroll-track::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--olive-light);animation:scrollPulse 2s 1.5s infinite}
+.scroll-txt{font-size:8px;letter-spacing:0.24em;text-transform:uppercase;color:rgba(255,255,255,0.25)}
+.manifesto{background:var(--cream);padding:120px 40px;text-align:center}
+.manifesto-inner{max-width:720px;margin:0 auto}
+.section-tag{font-size:9px;letter-spacing:0.32em;text-transform:uppercase;color:var(--olive);margin-bottom:20px;display:flex;align-items:center;justify-content:center;gap:12px}
+.section-tag::before,.section-tag::after{content:'';display:block;width:20px;height:0.5px;background:var(--olive)}
+.manifesto-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,5vw,52px);font-weight:300;line-height:1.15;color:var(--text);margin-bottom:40px}
+.manifesto-quote em{font-style:italic;color:var(--olive)}
+.manifesto-body{font-size:15px;color:var(--text-muted);line-height:2;max-width:580px;margin:0 auto}
+.values{background:#0e0e0a;padding:100px 40px}
+.values-inner{max-width:1000px;margin:0 auto}
+.values-header{text-align:center;margin-bottom:64px}
+.values-title{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,52px);font-weight:300;color:white;margin-bottom:12px}
+.values-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04)}
+.value-card{padding:40px 36px;background:#0e0e0a;transition:background .2s}
+.value-card:hover{background:#111108}
+.value-num{font-family:'Jost',sans-serif;font-size:52px;font-weight:200;color:var(--olive-light);line-height:1;margin-bottom:16px;letter-spacing:-0.02em}
+.value-name{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:white;margin-bottom:12px}
+.value-desc{font-size:13px;color:rgba(255,255,255,0.3);line-height:1.85}
+.story{background:var(--cream);padding:120px 40px}
+.story-inner{max-width:800px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
+.story-text .section-tag{justify-content:flex-start}
+.story-text .section-tag::after{display:none}
+.story-heading{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,5vw,48px);font-weight:300;line-height:1.1;color:var(--text);margin-bottom:24px}
+.story-body{font-size:14px;color:var(--text-muted);line-height:2}
+.story-body p{margin-bottom:16px}
+.story-visual{display:flex;flex-direction:column;gap:16px}
+.story-stat{background:white;border:0.5px solid var(--cream3);padding:24px 28px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:44px;font-weight:300;color:var(--olive);line-height:1;margin-bottom:6px}
+.stat-lbl{font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--text-muted)}
+.cta-section{background:var(--olive);padding:100px 40px;text-align:center}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,6vw,64px);font-weight:300;color:white;line-height:1.1;margin-bottom:16px}
+.cta-title em{font-style:italic}
+.cta-sub{font-size:14px;color:rgba(255,255,255,0.65);margin-bottom:40px;line-height:1.8}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.cta-btn{font-family:'Jost',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;padding:16px 36px;cursor:pointer;transition:all .25s;text-decoration:none;display:inline-block;border-radius:40px}
+.cta-btn.white{background:white;color:var(--olive);border:none}
+.cta-btn.white:hover{background:var(--cream);transform:translateY(-2px)}
+.cta-btn.outline{background:transparent;border:0.5px solid rgba(255,255,255,0.4);color:white}
+.cta-btn.outline:hover{border-color:white;transform:translateY(-2px)}
+footer{background:#060604;padding:40px;text-align:center;border-top:0.5px solid rgba(255,255,255,0.04)}
+footer p{font-size:11px;color:rgba(255,255,255,0.15);letter-spacing:0.1em}
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+@keyframes scrollPulse{0%{top:-100%}100%{top:100%}}
+@media(max-width:768px){nav{padding:0 20px}.values-grid{grid-template-columns:1fr}.story-inner{grid-template-columns:1fr;gap:40px}.cta-btns{flex-direction:column;align-items:center}}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="/" class="logo-wrap" onclick="navigate('/')">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 542 568" style="width:32px;height:32px">
+      <defs><style>
+        @keyframes left-piece{0%{transform:translate(-420px,180px) rotate(-55deg) scale(0.4);opacity:0}3%{opacity:1}24%{transform:translate(16px,-6px) rotate(3deg) scale(1.04);opacity:1}29%{transform:translate(-4px,3px) rotate(-1deg) scale(0.98)}33%,100%{transform:translate(0,0) rotate(0deg) scale(1);opacity:1}}
+        @keyframes right-piece{0%,10%{transform:translate(400px,-200px) rotate(50deg) scale(0.4);opacity:0}13%{opacity:1}34%{transform:translate(-12px,7px) rotate(-3deg) scale(1.04);opacity:1}39%{transform:translate(3px,-2px) rotate(1deg) scale(0.98)}43%,100%{transform:translate(0,0) rotate(0deg) scale(1);opacity:1}}
+        @keyframes dot-piece{0%,20%{transform:translate(0,-360px) scale(0.15);opacity:0}23%{opacity:1}46%{transform:translate(0,22px) scale(1.4);opacity:1}51%{transform:translate(0,-8px) scale(0.82)}55%{transform:translate(0,5px) scale(1.1)}58%{transform:translate(0,-2px) scale(0.97)}61%,100%{transform:translate(0,0) scale(1);opacity:1}}
+        .pl{fill:#6e703c;animation:left-piece 3.5s cubic-bezier(0.12,0.9,0.2,1) 1 forwards;transform-origin:175px 380px}
+        .pr{fill:#6e703c;animation:right-piece 3.5s cubic-bezier(0.12,0.9,0.2,1) 1 forwards;transform-origin:400px 360px}
+        .pd{fill:#6e703c;animation:dot-piece 3.5s cubic-bezier(0.22,1,0.36,1) 1 forwards;transform-origin:271px 330px}
+      </style></defs>
+      <path class="pl" d="M116.50 481.50 c-16.70 -1.95 -30.80 -7.05 -41.35 -14.95 -5.85 -4.40 -5.85 -4.80 -0.40 -5.20 6.05 -0.45 10.40 -2.55 14.85 -7.25 3.70 -3.95 5.75 -7.30 7.60 -12.50 1.20 -3.40 2.80 -10.70 3.60 -16.35 0.20 -1.35 0.50 -46.80 0.70 -101 0.30 -86.65 0.40 -99.35 1.15 -105.50 1.90 -16.20 4.50 -25.85 9.90 -36.25 8.45 -16.55 20.05 -28 36.85 -36.40 12.40 -6.20 20.10 -8.45 38.10 -11.05 10.85 -1.55 20.55 -2.05 40.50 -2.05 19.65 0 28.40 0.55 41.25 2.45 9.30 1.40 10.95 1.80 17.95 4.10 23.20 7.70 36.55 20.85 42.05 41.55 1.50 5.70 2.70 16 2.55 22.55 -0.10 5.90 -0.50 6.45 -3.50 4.40 -5.80 -4 -14.75 -7.55 -23.30 -9.30 -13.70 -2.80 -16.25 -3 -39 -2.95 -19.70 0 -21.70 0.10 -27.55 1.10 -9.70 1.75 -15.20 3.40 -21.20 6.35 -10.50 5.20 -15.90 11.30 -19.60 22 -3.05 8.85 -2.80 1.55 -3.15 101.75 -0.35 97.95 -0.30 95.55 -2.80 108.25 -1.55 8 -5.25 17.15 -9.65 23.75 -5.60 8.50 -15.35 15.65 -26.50 19.45 -7.10 2.45 -12.15 3.15 -24.05 3.30 -6.20 0.10 -12.95 0 -15 -0.25z"/>
+      <path class="pr" d="M436.80 481.45 c-6.90 -0.75 -18.90 -2.90 -23.55 -4.25 -19.40 -5.60 -30.75 -12 -42.30 -23.75 -13.75 -14.05 -21.95 -30.65 -26.45 -53.35 -2.85 -14.50 -2.90 -16.60 -2.95 -115.75 -0.05 -62.05 -0.20 -90.20 -0.55 -90.90 -0.30 -0.55 -0.40 -1.20 -0.25 -1.45 0.40 -0.60 -0.55 -6.70 -2.10 -13.45 -1.85 -8.40 -5.15 -15.55 -9.80 -21.45 l-2.50 -3.20 1.05 -3.05 c3.35 -9.95 4.50 -24.30 2.80 -34.95 -0.40 -2.75 -0.65 -5.25 -0.55 -5.65 0.30 -0.70 1.30 -0.65 11.10 0.55 20.15 2.45 38.80 7.65 52.25 14.60 8.75 4.55 10.65 5.70 16.80 10.50 15.65 12.10 24.05 30.25 25.65 55.35 0.25 3.60 0.45 45.65 0.50 93.50 0.05 47.85 0.20 91.05 0.35 96 0.45 17.05 2.25 34.70 4.90 49.10 3.15 17.05 10.65 38.15 17.10 48.25 1.15 1.80 2 3.45 1.85 3.60 -0.45 0.45 -18.75 0.25 -23.35 -0.25z"/>
+      <path class="pd" d="M265.75 343.35 c-5.85 -1.95 -9.90 -6.05 -12.30 -12.55 -2.05 -5.65 -0.65 -13 3.60 -18.35 1.65 -2.10 6.25 -5.05 9.30 -5.95 4.25 -1.30 7.25 -1.15 11.60 0.50 5 1.95 8.80 5.20 10.85 9.35 1.35 2.70 1.45 3.30 1.45 8.65 0 5.50 -0.05 5.90 -1.60 8.80 -1.80 3.45 -5.30 6.85 -8.95 8.70 -2 1 -3.35 1.25 -7.20 1.35 -2.95 0.10 -5.50 -0.10 -6.75 -0.50z"/>
+    </svg>
+    <span class="logo-text">baita</span>
+  </a>
+  <div class="nav-r">
+    <button class="nav-link" onclick="navigate('/')">Listings</button>
+    <button class="nav-link" onclick="navigate('dashboard.html')">My profile</button>
+    <button class="nav-cta" onclick="navigate('join.html')">Join Baita</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grain"></div>
+  <div class="hero-logo">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 542 568" style="width:280px;height:280px">
+      <defs><style>
+        @keyframes left-piece2{0%{transform:translate(-420px,180px) rotate(-55deg) scale(0.4);opacity:0}3%{opacity:1}24%{transform:translate(16px,-6px) rotate(3deg) scale(1.04);opacity:1}29%{transform:translate(-4px,3px) rotate(-1deg) scale(0.98)}33%,100%{transform:translate(0,0) rotate(0deg) scale(1);opacity:1}}
+        @keyframes right-piece2{0%,10%{transform:translate(400px,-200px) rotate(50deg) scale(0.4);opacity:0}13%{opacity:1}34%{transform:translate(-12px,7px) rotate(-3deg) scale(1.04);opacity:1}39%{transform:translate(3px,-2px) rotate(1deg) scale(0.98)}43%,100%{transform:translate(0,0) rotate(0deg) scale(1);opacity:1}}
+        @keyframes dot-piece2{0%,20%{transform:translate(0,-360px) scale(0.15);opacity:0}23%{opacity:1}46%{transform:translate(0,22px) scale(1.4);opacity:1}51%{transform:translate(0,-8px) scale(0.82)}55%{transform:translate(0,5px) scale(1.1)}58%{transform:translate(0,-2px) scale(0.97)}61%,100%{transform:translate(0,0) scale(1);opacity:1}}
+        .pl2{fill:#6e703c;animation:left-piece2 3.5s cubic-bezier(0.12,0.9,0.2,1) 1 forwards;transform-origin:175px 380px}
+        .pr2{fill:#6e703c;animation:right-piece2 3.5s cubic-bezier(0.12,0.9,0.2,1) 1 forwards;transform-origin:400px 360px}
+        .pd2{fill:#6e703c;animation:dot-piece2 3.5s cubic-bezier(0.22,1,0.36,1) 1 forwards;transform-origin:271px 330px}
+      </style></defs>
+      <path class="pl2" d="M116.50 481.50 c-16.70 -1.95 -30.80 -7.05 -41.35 -14.95 -5.85 -4.40 -5.85 -4.80 -0.40 -5.20 6.05 -0.45 10.40 -2.55 14.85 -7.25 3.70 -3.95 5.75 -7.30 7.60 -12.50 1.20 -3.40 2.80 -10.70 3.60 -16.35 0.20 -1.35 0.50 -46.80 0.70 -101 0.30 -86.65 0.40 -99.35 1.15 -105.50 1.90 -16.20 4.50 -25.85 9.90 -36.25 8.45 -16.55 20.05 -28 36.85 -36.40 12.40 -6.20 20.10 -8.45 38.10 -11.05 10.85 -1.55 20.55 -2.05 40.50 -2.05 19.65 0 28.40 0.55 41.25 2.45 9.30 1.40 10.95 1.80 17.95 4.10 23.20 7.70 36.55 20.85 42.05 41.55 1.50 5.70 2.70 16 2.55 22.55 -0.10 5.90 -0.50 6.45 -3.50 4.40 -5.80 -4 -14.75 -7.55 -23.30 -9.30 -13.70 -2.80 -16.25 -3 -39 -2.95 -19.70 0 -21.70 0.10 -27.55 1.10 -9.70 1.75 -15.20 3.40 -21.20 6.35 -10.50 5.20 -15.90 11.30 -19.60 22 -3.05 8.85 -2.80 1.55 -3.15 101.75 -0.35 97.95 -0.30 95.55 -2.80 108.25 -1.55 8 -5.25 17.15 -9.65 23.75 -5.60 8.50 -15.35 15.65 -26.50 19.45 -7.10 2.45 -12.15 3.15 -24.05 3.30 -6.20 0.10 -12.95 0 -15 -0.25z"/>
+      <path class="pr2" d="M436.80 481.45 c-6.90 -0.75 -18.90 -2.90 -23.55 -4.25 -19.40 -5.60 -30.75 -12 -42.30 -23.75 -13.75 -14.05 -21.95 -30.65 -26.45 -53.35 -2.85 -14.50 -2.90 -16.60 -2.95 -115.75 -0.05 -62.05 -0.20 -90.20 -0.55 -90.90 -0.30 -0.55 -0.40 -1.20 -0.25 -1.45 0.40 -0.60 -0.55 -6.70 -2.10 -13.45 -1.85 -8.40 -5.15 -15.55 -9.80 -21.45 l-2.50 -3.20 1.05 -3.05 c3.35 -9.95 4.50 -24.30 2.80 -34.95 -0.40 -2.75 -0.65 -5.25 -0.55 -5.65 0.30 -0.70 1.30 -0.65 11.10 0.55 20.15 2.45 38.80 7.65 52.25 14.60 8.75 4.55 10.65 5.70 16.80 10.50 15.65 12.10 24.05 30.25 25.65 55.35 0.25 3.60 0.45 45.65 0.50 93.50 0.05 47.85 0.20 91.05 0.35 96 0.45 17.05 2.25 34.70 4.90 49.10 3.15 17.05 10.65 38.15 17.10 48.25 1.15 1.80 2 3.45 1.85 3.60 -0.45 0.45 -18.75 0.25 -23.35 -0.25z"/>
+      <path class="pd2" d="M265.75 343.35 c-5.85 -1.95 -9.90 -6.05 -12.30 -12.55 -2.05 -5.65 -0.65 -13 3.60 -18.35 1.65 -2.10 6.25 -5.05 9.30 -5.95 4.25 -1.30 7.25 -1.15 11.60 0.50 5 1.95 8.80 5.20 10.85 9.35 1.35 2.70 1.45 3.30 1.45 8.65 0 5.50 -0.05 5.90 -1.60 8.80 -1.80 3.45 -5.30 6.85 -8.95 8.70 -2 1 -3.35 1.25 -7.20 1.35 -2.95 0.10 -5.50 -0.10 -6.75 -0.50z"/>
+    </svg>
+  </div>
+  <h1 class="hero-title">Finding a home<br>should feel <em>human.</em></h1>
+  <p class="hero-sub">Baita was born from a simple frustration — too many middlemen, too little trust. We built a place where landlords and seekers connect directly.</p>
+  <div class="scroll-hint" onclick="document.getElementById('manifesto').scrollIntoView({behavior:'smooth'})">
+    <div class="scroll-track"></div>
+    <span class="scroll-txt">Scroll</span>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section class="manifesto" id="manifesto">
+  <div class="manifesto-inner">
+    <p class="section-tag">Our philosophy</p>
+    <h2 class="manifesto-quote">"Tel Aviv deserves a rental market<br>built on <em>transparency</em> and <em>trust</em>."</h2>
+    <p class="manifesto-body">Baita is a direct platform where landlords post their apartments and seekers find their next home — with no agents, no commissions and no hidden fees. Just people, talking to people.</p>
+  </div>
+</section>
+
+<!-- VALUES -->
+<section class="values">
+  <div class="values-inner">
+    <div class="values-header">
+      <p class="section-tag" style="color:var(--olive-light);justify-content:center">What we stand for</p>
+      <h2 class="values-title">Built on three principles</h2>
+    </div>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-num">01</div>
+        <h3 class="value-name">Post directly</h3>
+        <p class="value-desc">Landlords publish their listings on Baita in minutes. No intermediary, no commission — your apartment, your terms, your price.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">02</div>
+        <h3 class="value-name">Connect directly</h3>
+        <p class="value-desc">Seekers message hosts directly through Baita. No agent taking a month's rent for forwarding an email. Real conversations, real decisions.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-num">03</div>
+        <h3 class="value-name">Live beautifully</h3>
+        <p class="value-desc">Finding a home is stressful enough. Baita strips away the complexity and gives you a calm, refined experience you actually enjoy using.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story">
+  <div class="story-inner">
+    <div class="story-text">
+      <p class="section-tag">Our story</p>
+      <h2 class="story-heading">Born in Tel Aviv,<br>built for Tel Aviv.</h2>
+      <div class="story-body">
+        <p>We spent months navigating the Tel Aviv rental market ourselves — calling agents, losing apartments to faster movers, paying fees for nothing. It was exhausting.</p>
+        <p>So we built the tool we wished existed. Baita is a direct marketplace where landlords post their apartments and seekers find their home — with messaging built in, verified profiles, and a beautiful experience on both sides.</p>
+        
+      </div>
+    </div>
+    <div class="story-visual">
+      <div class="story-stat">
+        <div class="stat-num">0</div>
+        <div class="stat-lbl">Agent commissions charged</div>
+      </div>
+      <div class="story-stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">Direct landlord listings</div>
+      </div>
+      <div class="story-stat">
+        <div class="stat-num">2 min</div>
+        <div class="stat-lbl">Average time to post a listing</div>
+      </div>
+      <div class="story-stat">
+        <div class="stat-num">&#8734;</div>
+        <div class="stat-lbl">Direct messages between users</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <h2 class="cta-title">Ready to find<br>your <em>home</em>?</h2>
+  <p class="cta-sub">Join seekers and landlords already using Baita — directly.</p>
+  <div class="cta-btns">
+    <a class="cta-btn white" onclick="navigate('join.html')">Create free account</a>
+    <a class="cta-btn outline" onclick="navigate('/')">Browse listings</a>
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2026 Baita &middot; Tel Aviv &middot; All rights reserved</p>
+</footer>
+
+<script>
+function navigate(url) {
+  document.body.classList.add('out');
+  setTimeout(function() { window.location.href = url; }, 300);
+}
+window.addEventListener('scroll', function() {
+  document.getElementById('nav').classList.toggle('scrolled', window.scrollY > 60);
+});
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+}, {threshold:0.15});
+document.querySelectorAll('.value-card,.story-stat,.manifesto-quote,.manifesto-body').forEach(function(el) {
+  el.style.opacity='0'; el.style.transform='translateY(24px)';
+  el.style.transition='opacity 0.7s ease, transform 0.7s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
