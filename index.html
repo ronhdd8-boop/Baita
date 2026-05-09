@@ -817,9 +817,7 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
 </svg>
     <span class="logo-text">baita</span>
   </a>
-  <div class="nav-center">
-    <button class="nav-link" onclick="navigate('about.html')">About</button>
-  </div>
+<div class="nav-center"></div>
   <div class="nav-right">
     <div class="nav-lang">
       <button class="lang-btn on" onclick="setLang('en')">EN</button>
@@ -956,214 +954,6 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
     <button class="cta-btn-about outline" onclick="navigate('join.html')">Create free account</button>
   </div>
 </section>
-
-<!-- SEARCH -->
-<section class="search-section" id="search-section">
-  <p class="s-eyebrow">Search</p>
-  <h2 class="s-heading">Find your apartment<br>in Tel Aviv</h2>
-  <div class="search-pill" id="search-pill">
-    <!-- Neighborhood -->
-    <div class="sp-field" id="field-hood" onclick="toggleDd('dd-hood')">
-      <span class="sp-label">Neighborhood</span>
-      <div class="sp-val placeholder" id="val-hood">Anywhere in Tel Aviv</div>
-      <div class="sp-dropdown" id="dd-hood">
-        <div class="dd-inner">
-          <p class="dd-title">Select neighborhoods</p>
-          <div class="dd-grid" id="hood-chips"></div>
-        </div>
-      </div>
-    </div>
-    <div class="sp-sep"></div>
-    <!-- Budget -->
-    <div class="sp-field" onclick="toggleDd('dd-price')">
-      <span class="sp-label">Budget / month</span>
-      <div class="sp-val placeholder" id="val-price">Any price</div>
-      <div class="sp-dropdown" id="dd-price">
-        <div class="dd-inner">
-          <p class="dd-title">Max monthly rent</p>
-          <div class="dd-grid">
-            <div class="dd-chip" onclick="setPrice(this,'4000')">₪ 4,000</div>
-            <div class="dd-chip" onclick="setPrice(this,'6000')">₪ 6,000</div>
-            <div class="dd-chip" onclick="setPrice(this,'8000')">₪ 8,000</div>
-            <div class="dd-chip" onclick="setPrice(this,'10000')">₪ 10,000</div>
-            <div class="dd-chip" onclick="setPrice(this,'12000')">₪ 12,000</div>
-            <div class="dd-chip" onclick="setPrice(this,'15000')">₪ 15,000+</div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="sp-sep"></div>
-    <!-- Rooms -->
-    <div class="sp-field" onclick="toggleDd('dd-rooms')">
-      <span class="sp-label">Rooms</span>
-      <div class="sp-val placeholder" id="val-rooms">Any size</div>
-      <div class="sp-dropdown" id="dd-rooms">
-        <div class="dd-inner">
-          <p class="dd-title">Number of rooms</p>
-          <div class="dd-grid" id="rooms-chips"></div>
-        </div>
-      </div>
-    </div>
-    <div class="sp-sep"></div>
-    <!-- Filters -->
-    <div class="sp-field" onclick="toggleDd('dd-filters')">
-      <span class="sp-label">Filters</span>
-      <div class="sp-val placeholder" id="val-filters">All amenities</div>
-      <div class="sp-dropdown filters-dd" id="dd-filters">
-        <div class="dd-inner">
-          <p class="dd-title">Amenities &amp; features</p>
-          <div class="fd-grid">
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Pets welcome" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">🐾</span>
-              <span class="fd-name">Pets welcome</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Parking" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">🚗</span>
-              <span class="fd-name">Parking</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Balcony" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">🌿</span>
-              <span class="fd-name">Balcony</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Elevator" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">🏢</span>
-              <span class="fd-name">Elevator</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Furnished" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">🛋️</span>
-              <span class="fd-name">Furnished</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="New build" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">✨</span>
-              <span class="fd-name">New build</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Air conditioning" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">❄️</span>
-              <span class="fd-name">Air conditioning</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Sun-facing" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">☀️</span>
-              <span class="fd-name">Sun-facing</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Safe room" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">🔒</span>
-              <span class="fd-name">Safe room</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Pool" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">🏊</span>
-              <span class="fd-name">Pool</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Gym" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">🏋️</span>
-              <span class="fd-name">Gym</span>
-            </div>
-          </label>
-          <label class="fd-item">
-            <input type="checkbox" class="fd-chk" data-label="Storage unit" onchange="updateFilterCount()">
-            <div class="fd-card">
-              <span class="fd-icon">📐</span>
-              <span class="fd-name">Storage unit</span>
-            </div>
-          </label>
-          </div>
-          <div class="fd-footer">
-            <button class="fd-clear" onclick="clearFilters()">Clear all</button>
-            <button class="fd-apply" onclick="closeDds();doSearch(true)">Apply</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <button class="sp-btn" onclick="doSearch(true)">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
-      </svg>
-    </button>
-  </div>
-</section>
-
-<!-- LISTINGS SPLIT SCREEN -->
-<section id="listings-wrap" class="split-section">
-  <!-- LEFT: List -->
-  <div class="split-left" id="split-left">
-    <div class="split-header">
-      <div>
-        <h2 class="ls-title">Latest Listings</h2>
-        <p class="ls-count" id="ls-count"></p>
-      </div>
-      <div class="filter-row">
-        <button class="f-btn on" onclick="setRooms(this,null)">All</button>
-        <button class="f-btn" onclick="setRooms(this,1)">Studios</button>
-        <button class="f-btn" onclick="setRooms(this,2)">2 rooms</button>
-        <button class="f-btn" onclick="setRooms(this,3)">3 rooms</button>
-        <button class="f-btn" onclick="setRooms(this,4)">4+</button>
-        <button class="f-btn" onclick="setRooms(this,'new')">New</button>
-        <select class="f-sort" onchange="curSort=this.value;doSearch(true)">
-          <option value="newest">Newest</option>
-          <option value="price_asc">Price ↑</option>
-          <option value="price_desc">Price ↓</option>
-        </select>
-      </div>
-    </div>
-    <div class="cards-list" id="listings-grid"></div>
-    <div class="load-more-wrap">
-      <button class="load-more-btn" onclick="loadMore()">Load more</button>
-    </div>
-  </div>
-  <!-- RIGHT: Map -->
-  <div class="split-right" id="split-right">
-    <div id="map"></div>
-  </div>
-</section>
-
-<!-- LOGIN MODAL -->
-<div id="modal-overlay" onclick="if(event.target===this)closeModal()">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">&#x2715;</button>
-    <div class="modal-tabs">
-      <button class="m-tab on">Sign in</button>
-      <button class="m-tab" onclick="navigate('join.html')">Create account</button>
-    </div>
-    <p class="m-eyebrow">Welcome back</p>
-    <h2 class="m-title">Sign in to Baita</h2>
-    <div class="m-field"><label>Email</label><input id="m-email" type="email" placeholder="ron@example.com" onkeydown="if(event.key==='Enter')doLogin()"></div>
-    <div class="m-field"><label>Password</label><input id="m-pwd" type="password" placeholder="Your password" onkeydown="if(event.key==='Enter')doLogin()"></div>
-    <button class="m-btn" onclick="doLogin()">Sign in &rarr;</button>
-    <p class="m-err" id="m-err">Wrong email or password.</p>
-    <p class="m-foot">No account? <a onclick="navigate('join.html')">Create one for free</a></p>
-  </div>
-</div>
 
 <!-- FOOTER -->
 <footer id="site-footer">
@@ -1327,13 +1117,7 @@ nav.scrolled .nav-btn.ghost:hover{border-color:var(--olive);color:var(--olive)}
 <script>
 var API = 'https://baita.onrender.com';
 var token = localStorage.getItem('baita_token');
-var offset = 0, curRooms = null, curSort = 'newest', newOnly = false;
-var saved = new Set(JSON.parse(localStorage.getItem('b_saved') || '[]'));
-var selectedHoods = [], selectedPrice = null, selectedRooms = null;
-var NBHD = ["Neve Tzedek", "Florentin", "Rothschild", "Gordon", "Kerem HaTeimanim", "Lev Tel Aviv", "Dizengoff", "Ramat Aviv", "Jaffa", "Sarona", "HaCarmel", "Shapira", "Kikar HaMedina", "Old North", "Bavli", "Tzahala", "Ajami", "Noga", "Yad Eliyahu", "Montefiore"];
-var ROOMS = ["Studio", "1", "1.5", "2", "2.5", "3", "3.5", "4", "4.5", "5+"];
 
-/* ── PAGE TRANSITION ─────────── */
 function navigate(url) {
   document.body.classList.add('fade-out');
   setTimeout(function() { window.location.href = url; }, 320);
@@ -1342,20 +1126,15 @@ function smoothGo(sel) {
   var el = document.querySelector(sel);
   if (el) el.scrollIntoView({behavior:'smooth'});
 }
+function setLang(l) {
+  document.querySelectorAll('.lang-btn').forEach(function(b,i) {
+    b.classList.toggle('on',(i===0&&l==='en')||(i===1&&l==='he'));
+  });
+  var root = document.getElementById('html-root');
+  if (root) { root.setAttribute('dir', l==='he'?'rtl':'ltr'); root.setAttribute('lang', l); }
+}
 
-/* ── NAV ─────────────────────── */
-window.addEventListener('scroll', function() {
-  var nav = document.getElementById('nav');
-  if (window.scrollY > 60) {
-    nav.classList.add('scrolled');
-    nav.classList.remove('dark');
-  } else {
-    nav.classList.remove('scrolled');
-    nav.classList.add('dark');
-  }
-});
-
-/* ── CAROUSEL ────────────────── */
+// Carousel
 var slideIdx = 0;
 var slideLocations = ['Gordon Beach · Tel Aviv','Rothschild Boulevard','Neve Tzedek','Old Jaffa'];
 var carouselTimer;
@@ -1375,409 +1154,57 @@ function goSlide(n) {
 }
 carouselTimer = setInterval(function() { goSlide(slideIdx + 1); }, 6000);
 
-/* ── NEIGHBORHOOD CHIPS ──────── */
-(function() {
-  var g = document.getElementById('hood-chips');
-  NBHD.forEach(function(n) {
-    var d = document.createElement('div');
-    d.className = 'dd-chip';
-    d.textContent = n;
-    d.addEventListener('click', function(e) {
-      e.stopPropagation();
-      d.classList.toggle('on');
-      if (d.classList.contains('on')) { selectedHoods.push(n); }
-      else { selectedHoods = selectedHoods.filter(function(x) { return x !== n; }); }
-      updateHoodVal();
-    });
-    g.appendChild(d);
-  });
-  var rg = document.getElementById('rooms-chips');
-  ROOMS.forEach(function(r) {
-    var d = document.createElement('div');
-    d.className = 'dd-chip';
-    d.textContent = r === '5+' ? '5+ rooms' : (r === 'Studio' ? 'Studio' : r + ' rooms');
-    d.addEventListener('click', function(e) {
-      e.stopPropagation();
-      document.querySelectorAll('#rooms-chips .dd-chip').forEach(function(c) { c.classList.remove('on'); });
-      d.classList.add('on');
-      selectedRooms = r === 'Studio' ? 1 : parseFloat(r);
-      updateRoomsVal();
-    });
-    rg.appendChild(d);
-  });
-})();
-
-function updateHoodVal() {
-  var el = document.getElementById('val-hood');
-  if (selectedHoods.length === 0) {
-    el.textContent = 'Anywhere in Tel Aviv';
-    el.className = 'sp-val placeholder';
-  } else {
-    el.textContent = selectedHoods.slice(0,2).join(', ') + (selectedHoods.length > 2 ? ' +' + (selectedHoods.length-2) : '');
-    el.className = 'sp-val';
-  }
-}
-function updateRoomsVal() {
-  var el = document.getElementById('val-rooms');
-  if (!selectedRooms) { el.textContent = 'Any size'; el.className = 'sp-val placeholder'; }
-  else { el.textContent = selectedRooms + ' rooms'; el.className = 'sp-val'; }
-}
-function setPrice(chip, val) {
-  event.stopPropagation();
-  document.querySelectorAll('#dd-price .dd-chip').forEach(function(c) { c.classList.remove('on'); });
-  chip.classList.add('on');
-  selectedPrice = val;
-  var el = document.getElementById('val-price');
-  el.textContent = chip.textContent;
-  el.className = 'sp-val';
-}
-
-/* ── FILTER DROPDOWN ─────────── */
-function updateFilterCount() {
-  var checks = document.querySelectorAll('.fd-chk:checked');
-  var el = document.getElementById('val-filters');
-  if (checks.length === 0) { el.textContent = 'All amenities'; el.className = 'sp-val placeholder'; }
-  else {
-    var labels = Array.from(checks).map(function(c) { return c.getAttribute('data-label'); });
-    el.textContent = labels.length + ' filter' + (labels.length > 1 ? 's' : '') + ' selected';
-    el.className = 'sp-val';
-  }
-}
-function clearFilters() {
-  document.querySelectorAll('.fd-chk').forEach(function(c) { c.checked = false; });
-  updateFilterCount();
-}
-
-/* ── DROPDOWNS ───────────────── */
-function toggleDd(id) {
-  var all = document.querySelectorAll('.sp-dropdown');
-  all.forEach(function(d) { if (d.id !== id) d.classList.remove('open'); });
-  var dd = document.getElementById(id);
-  if (dd) dd.classList.toggle('open');
-}
-function closeDds() {
-  document.querySelectorAll('.sp-dropdown').forEach(function(d) { d.classList.remove('open'); });
-}
-document.addEventListener('click', function(e) {
-  if (!e.target.closest('#search-pill')) closeDds();
-});
-
-/* ── SEARCH ──────────────────── */
-function doSearch(reset) {
-  if (reset === undefined) reset = true;
-  if (reset) offset = 0;
-  closeDds();
-  initMap();
-  var url = API + '/listings?limit=6&offset=' + offset + '&sort=' + curSort;
-  if (selectedHoods.length) url += '&neighborhood=' + encodeURIComponent(selectedHoods[0]);
-  if (selectedPrice) url += '&max_price=' + selectedPrice;
-  if (selectedRooms) url += '&rooms=' + selectedRooms;
-  if (newOnly) url += '&new_today=true';
-  fetch(url)
+// Nav: show user name if logged in
+if (token) {
+  fetch(API + '/users/me', {headers: {'Authorization': 'Bearer ' + token}})
     .then(function(r) { return r.json(); })
     .then(function(d) {
-      renderCards(d.listings, reset);
-      var shown = Math.min(offset + 6, d.total);
-      document.getElementById('ls-count').textContent = 'Showing ' + shown + ' of ' + Number(d.total).toLocaleString();
-    })
-    .catch(renderFallback);
-}
-
-var GRADS = [
-  'linear-gradient(135deg,#1a2a14 0%,#2a3a1e 50%,#1e2e18 100%)',
-  'linear-gradient(135deg,#141420 0%,#1e1e30 50%,#181828 100%)',
-  'linear-gradient(135deg,#201408 0%,#302010 50%,#281a0c 100%)',
-  'linear-gradient(135deg,#081420 0%,#102030 50%,#0c1828 100%)',
-  'linear-gradient(135deg,#201a08 0%,#302808 50%,#281e08 100%)',
-  'linear-gradient(135deg,#082014 0%,#103020 50%,#0c2818 100%)',
-];
-
-// Map
-var map = null;
-var mapMarkers = [];
-var allListings = [];
-
-// Tel Aviv neighborhoods coordinates
-var HOOD_COORDS = {
-  'Neve Tzedek': [32.0617, 34.7672],
-  'Florentin': [32.0586, 34.7706],
-  'Rothschild': [32.0641, 34.7739],
-  'Gordon': [32.0849, 34.7760],
-  'Kerem HaTeimanim': [32.0611, 34.7681],
-  'Lev Tel Aviv': [32.0710, 34.7750],
-  'Dizengoff': [32.0795, 34.7738],
-  'Ramat Aviv': [32.1129, 34.8012],
-  'Jaffa': [32.0522, 34.7561],
-  'Sarona': [32.0693, 34.7800],
-  'HaCarmel': [32.0640, 34.7750],
-  'Shapira': [32.0558, 34.7768],
-  'Old North': [32.0876, 34.7786],
-  'Bavli': [32.0934, 34.7896],
-  'Ajami': [32.0478, 34.7520],
-  'Noga': [32.0605, 34.7708],
-  'Gordon Beach': [32.0849, 34.7760],
-};
-
-function getCoords(hood) {
-  var base = HOOD_COORDS[hood];
-  if (!base) base = [32.0853, 34.7818];
-  return [base[0] + (Math.random() - 0.5) * 0.005, base[1] + (Math.random() - 0.5) * 0.005];
-}
-
-function initMap() {
-  if (map) return;
-  map = L.map('map', {
-    center: [32.0853, 34.7818],
-    zoom: 13,
-    zoomControl: false,
-    scrollWheelZoom: true,
-    attributionControl: false
-  });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '',
-    subdomains: 'abcd',
-    maxZoom: 19
-  }).addTo(map);
-  L.control.zoom({ position: 'bottomright' }).addTo(map);
-}
-
-function clearMarkers() {
-  mapMarkers.forEach(function(m) { map.removeLayer(m); });
-  mapMarkers = [];
-}
-
-function addMarkers(listings) {
-  clearMarkers();
-  listings.forEach(function(l, i) {
-    var coords = getCoords(l.neighborhood);
-    l._coords = coords;
-    var priceK = Math.round(l.price / 1000);
-    var icon = L.divIcon({
-      html: '<div class="map-marker" id="mkr-' + l.id + '">&#8362;' + priceK + 'K</div>',
-      className: '',
-      iconSize: null,
-      iconAnchor: [30, 36]
-    });
-    var marker = L.marker(coords, { icon: icon }).addTo(map);
-    marker._listingId = l.id;
-    marker.on('click', function() {
-      highlightListing(l.id);
-      var popupContent = '<div class="map-popup">' +
-        '<div class="mp-img" style="background:' + GRADS[i % GRADS.length] + '"></div>' +
-        '<div class="mp-body">' +
-          '<p class="mp-hood">' + l.neighborhood + '</p>' +
-          '<p class="mp-title">' + l.title + '</p>' +
-          '<p class="mp-price">&#8362;' + Number(l.price).toLocaleString() + '<span>/ month</span></p>' +
-        '</div></div>';
-      L.popup({ closeButton: true, offset: [0, -10], maxWidth: 240 })
-        .setLatLng(coords)
-        .setContent(popupContent)
-        .openOn(map);
-    });
-    mapMarkers.push(marker);
-  });
-}
-
-function highlightListing(id) {
-  // Highlight card
-  document.querySelectorAll('.listing-card-new').forEach(function(c) {
-    c.classList.toggle('highlighted', c.getAttribute('data-id') === id);
-    if (c.getAttribute('data-id') === id) {
-      c.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
-  });
-  // Highlight marker
-  document.querySelectorAll('.map-marker').forEach(function(m) {
-    m.classList.remove('active');
-  });
-  var mkr = document.getElementById('mkr-' + id);
-  if (mkr) mkr.classList.add('active');
-}
-
-function buildCard(l, i) {
-  var sv = saved.has(l.id);
-  var isNew = new Date(l.created_at) > new Date(Date.now() - 86400000);
-  var card = document.createElement('div');
-  card.className = 'listing-card-new';
-  card.setAttribute('data-id', l.id);
-
-  // Image section
-  var imgDiv = document.createElement('div');
-  imgDiv.className = 'lcn-img';
-  var grad = document.createElement('div');
-  grad.className = 'lcn-gradient';
-  grad.style.background = GRADS[i % GRADS.length];
-  imgDiv.appendChild(grad);
-  var overlay = document.createElement('div');
-  overlay.className = 'lcn-overlay';
-  imgDiv.appendChild(overlay);
-  var srcBadge = document.createElement('div');
-  srcBadge.className = 'lcn-src';
-  srcBadge.textContent = l.source;
-  imgDiv.appendChild(srcBadge);
-  var saveBtn = document.createElement('div');
-  saveBtn.className = 'lcn-save' + (sv ? ' on' : '');
-  saveBtn.innerHTML = sv ? '&#9829;' : '&#9825;';
-  saveBtn.addEventListener('click', function(e) {
-    e.stopPropagation();
-    if (saved.has(l.id)) saved.delete(l.id); else saved.add(l.id);
-    localStorage.setItem('b_saved', JSON.stringify(Array.from(saved)));
-    saveBtn.className = 'lcn-save' + (saved.has(l.id) ? ' on' : '');
-    saveBtn.innerHTML = saved.has(l.id) ? '&#9829;' : '&#9825;';
-  });
-  imgDiv.appendChild(saveBtn);
-  var priceTag = document.createElement('div');
-  priceTag.className = 'lcn-price-tag';
-  priceTag.innerHTML = '&#8362;' + Number(l.price).toLocaleString() + '<span>/ month</span>';
-  imgDiv.appendChild(priceTag);
-  if (isNew) {
-    var nb = document.createElement('div');
-    nb.className = 'lcn-new';
-    nb.textContent = 'New today';
-    imgDiv.appendChild(nb);
-  }
-  card.appendChild(imgDiv);
-
-  // Body
-  var body = document.createElement('div');
-  body.className = 'lcn-body';
-  body.innerHTML =
-    '<p class="lcn-hood">' + l.neighborhood + '</p>' +
-    '<p class="lcn-title">' + l.title + '</p>' +
-    '<div class="lcn-details">' +
-      '<span class="lcn-detail">' + l.rooms + ' rooms</span>' +
-      (l.sqm ? '<span class="lcn-detail">' + l.sqm + ' m&#178;</span>' : '') +
-      (l.floor ? '<span class="lcn-detail">Floor ' + l.floor + '</span>' : '') +
-    '</div>';
-  card.appendChild(body);
-
-  card.addEventListener('mouseenter', function() { highlightListing(l.id); });
-  card.addEventListener('click', function(e) {
-    if (e.target.classList.contains('lcn-save')) return;
-    if (!token) { openModal(); return; }
-    // Pan map to listing
-    if (map && l._coords) map.panTo(l._coords);
-  });
-  return card;
-}
-
-function renderCards(list, reset) {
-  var g = document.getElementById('listings-grid');
-  if (reset) {
-    g.innerHTML = '';
-    allListings = list || [];
-  } else {
-    allListings = allListings.concat(list || []);
-  }
-  if (!list || !list.length) {
-    if (reset) g.innerHTML = '<div style="padding:60px;text-align:center;color:var(--text-muted);font-family:Cormorant Garamond,serif;font-size:24px">No listings found</div>';
-    return;
-  }
-  list.forEach(function(l, i) { g.appendChild(buildCard(l, (reset ? 0 : offset - list.length) + i)); });
-  if (map) addMarkers(allListings);
-}
-
-var FALLBACK = [
-  {id:'1',neighborhood:'Neve Tzedek',title:'Bright 3-room with terrace',rooms:3,sqm:78,floor:2,price:9500,source:'Yad2',url:'#',created_at:new Date()},
-  {id:'2',neighborhood:'Florentin',title:'Renovated 2-room, charming block',rooms:2,sqm:52,floor:3,price:5900,source:'Madlan',url:'#',created_at:new Date()},
-  {id:'3',neighborhood:'Rothschild',title:'Penthouse studio, city views',rooms:1,sqm:38,floor:8,price:7200,source:'Yad2',url:'#',created_at:new Date()},
-  {id:'4',neighborhood:'Gordon',title:'Spacious 4-room near the beach',rooms:4,sqm:105,floor:4,price:13500,source:'Homeless',url:'#',created_at:new Date()},
-  {id:'5',neighborhood:'Kerem HaTeimanim',title:'Authentic 2-room, high ceilings',rooms:2,sqm:60,floor:1,price:6400,source:'Komo',url:'#',created_at:new Date()},
-  {id:'6',neighborhood:'Lev Tel Aviv',title:'Modern 3-room, fully furnished',rooms:3,sqm:88,floor:5,price:11200,source:'Yad2',url:'#',created_at:new Date()},
-];
-function renderFallback() {
-  renderCards(FALLBACK, true);
-  document.getElementById('ls-count').textContent = 'Showing 6 of 2,841';
-}
-function setRooms(btn, rooms) {
-  document.querySelectorAll('.f-btn').forEach(function(b) { b.classList.remove('on'); });
-  btn.classList.add('on');
-  curRooms = rooms;
-  newOnly = rooms === 'new';
-  doSearch(true);
-
-// Trigger about logo animation when scrolled into view
-var aboutLogoObserver = new IntersectionObserver(function(entries) {
-  entries.forEach(function(e) {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.al,.ar,.ad').forEach(function(el) {
-        el.classList.add('run');
-      });
-      aboutLogoObserver.unobserve(e.target);
-    }
-  });
-}, {threshold: 0.3});
-var aboutSection = document.getElementById('about-section');
-if (aboutSection) aboutLogoObserver.observe(aboutSection);
-}
-function loadMore() { offset += 6; doSearch(false); }
-
-/* ── MODAL ───────────────────── */
-function openModal() {
-  document.getElementById('modal-overlay').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal() {
-  document.getElementById('modal-overlay').classList.remove('open');
-  document.body.style.overflow = '';
-}
-function doLogin() {
-  var email = document.getElementById('m-email').value.trim();
-  var pwd = document.getElementById('m-pwd').value;
-  fetch(API + '/users/login', {
-    method:'POST', headers:{'Content-Type':'application/json'},
-    body: JSON.stringify({email:email,password:pwd})
-  }).then(function(r) { return r.json(); })
-  .then(function(d) {
-    if (d.success && d.token) {
-      token = d.token;
-      localStorage.setItem('baita_token', token);
-      closeModal();
-      var nb = document.querySelector('.nav-btn.ghost');
-      if (nb && d.user) nb.textContent = d.user.full_name.split(' ')[0];
-    } else {
-      document.getElementById('m-err').style.display = 'block';
-    }
-  }).catch(function() { document.getElementById('m-err').style.display = 'block'; });
-}
-
-/* ── LANG ────────────────────── */
-function setLang(l) {
-  document.querySelectorAll('.lang-btn').forEach(function(b,i) {
-    b.classList.toggle('on',(i===0&&l==='en')||(i===1&&l==='he'));
-  });
-  var root = document.getElementById('html-root');
-  root.setAttribute('dir', l==='he'?'rtl':'ltr');
-  root.setAttribute('lang', l);
-}
-
-/* ── CHECK LOGIN ─────────────── */
-if (token) {
-  fetch(API+'/users/me',{headers:{'Authorization':'Bearer '+token}})
-    .then(function(r){return r.json();})
-    .then(function(d){
-      if(d.user){
-        var nb = document.querySelector('.nav-btn.ghost');
-        if(nb) nb.textContent = d.user.full_name.split(' ')[0];
+      if (d.user) {
+        var signinBtn = document.getElementById('nav-signin-btn');
+        var joinBtn = document.getElementById('nav-join-btn');
+        if (signinBtn) signinBtn.style.display = 'none';
+        if (joinBtn) {
+          joinBtn.textContent = d.user.full_name.split(' ')[0];
+          joinBtn.style.background = 'transparent';
+          joinBtn.style.border = '0.5px solid rgba(255,255,255,0.3)';
+          joinBtn.style.color = 'rgba(255,255,255,0.8)';
+          joinBtn.onclick = function() { navigate('dashboard.html'); };
+        }
       }
     }).catch(function(){});
 }
 
-doSearch(true);
-
-// Trigger about logo animation when scrolled into view
+// Animate about logo when scrolled into view
 var aboutLogoObserver = new IntersectionObserver(function(entries) {
   entries.forEach(function(e) {
     if (e.isIntersecting) {
-      e.target.querySelectorAll('.al,.ar,.ad').forEach(function(el) {
-        el.classList.add('run');
-      });
+      e.target.querySelectorAll('.al,.ar,.ad').forEach(function(el) { el.classList.add('run'); });
       aboutLogoObserver.unobserve(e.target);
     }
   });
 }, {threshold: 0.3});
 var aboutSection = document.getElementById('about-section');
 if (aboutSection) aboutLogoObserver.observe(aboutSection);
+
+// Animate sections on scroll
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
+  });
+}, {threshold: 0.15});
+document.querySelectorAll('.value-card,.story-stat,.manifesto-quote,.manifesto-body').forEach(function(el) {
+  el.style.opacity='0'; el.style.transform='translateY(24px)';
+  el.style.transition='opacity 0.7s ease, transform 0.7s ease';
+  observer.observe(el);
+});
+
+// Scroll nav effect
+window.addEventListener('scroll', function() {
+  var nav = document.getElementById('nav');
+  if (!nav) return;
+  if (window.scrollY > 60) { nav.classList.add('scrolled'); nav.classList.remove('dark'); }
+  else { nav.classList.remove('scrolled'); nav.classList.add('dark'); }
+});
 </script>
 </body>
 </html>
